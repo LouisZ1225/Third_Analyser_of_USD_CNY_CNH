@@ -1,5 +1,5 @@
-def calc_spread(df):
-    
-    df["spread"] = df["usd_cnh"] - df["usd_cny"]
+def calc_volatility(df, window=20):
+        
+    df["volatility"] = df["spread"].rolling(window).std()
     
     return df

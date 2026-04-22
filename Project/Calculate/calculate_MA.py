@@ -1,5 +1,5 @@
-def calc_spread(df):
+def calc_MA(df, window=20):
     
-    df["spread"] = df["usd_cnh"] - df["usd_cny"]
+    df[f"ma_{window}"] = df["spread"].rolling(window).mean()
     
     return df

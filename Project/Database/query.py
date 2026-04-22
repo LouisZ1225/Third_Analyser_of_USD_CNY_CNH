@@ -1,21 +1,18 @@
 import sqlite3
 import pandas as pd
 
-def query_rate(DB_PATH, date, currency):
-    with sqlite3.connect(DB_PATH) as conn:
-      cursor = conn.cursor()
-      cursor.execute("""
-                   SELECT rate FROM FX_RATES
-                     WHERE date = ? AND targetC = ?
-                     """, (date, currency))
-    
-      result = cursor.fetchone()
-    
-      if not result:
-            print(f"No data found for date: {date} and currency: {currency}")
-            return None
-    
-    return result[0] if result else None
+def query_rate(DB_PATH):
+    conn = sqlite3.connect(DB_PATH)
+    df = pd.read_sql("SELECT * FROM fx_daily", conn)
+    conn.close()
+
+    df["date"] = pd.to_datetime(df["date"], errors="coerce")
+    df = df.sort_values("date")
+    df = df[df["date"] >= "2013-07-18"]
+    df = df.dropna(subset=["usd_cny", "usd_cnh"])
+    df = df.set_index("date")
+
+    return df
 
 
 
