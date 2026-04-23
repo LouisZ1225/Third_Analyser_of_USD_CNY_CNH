@@ -3,3 +3,10 @@ Project/Database/.DS_Store
 .DS_Store
 Project/Test/__pycache__/test_main.cpython-314.pyc
 venv/
+Project/Calculate/__pycache__/calculate_MA.cpython-312.pyc
+Project/Calculate/__pycache__/calculate_spread.cpython-312.pyc
+Project/Calculate/__pycache__/calculate_volatility.cpython-312.pyc
+Project/Database/__pycache__/query.cpython-312.pyc
+.gitignore
+Project/Run/__pycache__/main.cpython-312.pyc
+Project/Mathplot/__pycache__/mathplot.cpython-312.pyc

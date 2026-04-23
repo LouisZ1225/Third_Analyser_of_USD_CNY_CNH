@@ -1,7 +1,7 @@
 from Calculate.calculate_MA import calc_MA
 from Calculate.calculate_spread import calc_spread
 from Calculate.calculate_volatility import calc_volatility
-from Mathplot.mathplot import mathplot
+from Mathplot.mathplot import mathplot, plotly_basic,plotly_upgrade
 from Database.query import query_rate
 
 DB_PATH = "Database/fx_rate.db"
@@ -21,7 +21,7 @@ def main():
     print("✅ 指标计算完成")
 
     # 3️⃣ 画图
-    mathplot(df)
+    plotly_upgrade(df)
 
     print("🎯 Pipeline 完成")
 
