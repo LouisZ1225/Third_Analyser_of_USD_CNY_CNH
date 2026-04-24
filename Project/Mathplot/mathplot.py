@@ -25,7 +25,12 @@ def plotly_basic(df):
     fig.show()
 
 def plotly_upgrade(df):
-    fig = make_subplots(rows=2, cols=1, shared_xaxes=True)
+    fig = make_subplots(
+        rows=2, cols=1, 
+        shared_xaxes=True,
+        vertical_spacing=0.08,
+        row_heights=[0.65, 0.35]
+        )
 
 #====== Spread =======
 
@@ -73,10 +78,14 @@ def plotly_upgrade(df):
         line_color="gray"
     )
     
+    fig.update_xaxes(showticklabels=False, row=1, col=1)
+    fig.update_xaxes(title_text="Date", row=2, col=1)
+
+    fig.update_yaxes(title_text="Spread", row=1, col=1)
+    fig.update_yaxes(title_text="Volatility", row=2, col=1)
+
     fig.update_layout(
         title="CNH - CNY Spread Analysis | Mean Reversion Signal Monitor",
-        xaxis_title="Date",
-        yaxis_title="Spread",
         template="plotly_dark",
         hovermode="x unified"
     )
