@@ -19,3 +19,4 @@ Project/Calculate/__pycache__/calculate_spread.cpython-314.pyc
 .gitignore
 Project/Run/__pycache__/main.cpython-314.pyc
 Project/Mathplot/__pycache__/mathplot.cpython-314.pyc
+Project/Model/__pycache__/ols_model.cpython-314.pyc
