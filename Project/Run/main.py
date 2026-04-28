@@ -21,7 +21,7 @@ def main():
     
     print("✅ 指标计算完成")
 
-    plotly_upgrade(df)
+    #plotly_upgrade(df)
     print("🎯 Pipeline 完成")
 
 if __name__ == "__main__":
