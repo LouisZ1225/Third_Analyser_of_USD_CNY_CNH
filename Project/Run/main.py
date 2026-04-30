@@ -55,7 +55,7 @@ def main():
 
     generate_ols_report(model)
     
-    print("🎯 Pipeline 完成")
+    print("\n🎯 Pipeline 完成")
 
 if __name__ == "__main__":
     main()

@@ -12,7 +12,8 @@ def ask_llm(prompt):
             "model": "qwen:7b",
             "prompt": prompt,
             "stream": True
-        }
+        },
+        stream=True
     )
     
     full_text = ""
@@ -23,7 +24,7 @@ def ask_llm(prompt):
             token = data.get("response", "")
             print(token, end="", flush=True)
             full_text += token
-            time.sleep(0.02)
+
 
     return full_text
     
