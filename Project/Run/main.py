@@ -10,6 +10,8 @@ from Model.garch_model import run_garch
 from Model.var_model import run_var
 from Model.arima_model import run_arima
 from Model.johansen_model import run_coint
+from Report.llm_report import ask_llm
+from Report.llm_report import generate_ols_report
 
 DB_PATH = "Database/fx_rate.db"
 
@@ -34,18 +36,25 @@ def main():
 ]
     results = {}
     
+    VERBOSE = False
+    
     for name, func in models:
         try:
             print(f"\n📊 Running {name} model...")
-            result = func(df)
+            result = func(df, verbose=VERBOSE)
             results[name] = result
             print(f"✅ {name} 完成")
         except Exception as e:
-            print(f"❌ {name} 报错：{e}")
+            print(f"❌ {name}")
     
     print("✅ 指标计算完成")
 
     #plotly_upgrade(df)
+    
+    model = run_ols(df)
+
+    generate_ols_report(model)
+    
     print("🎯 Pipeline 完成")
 
 if __name__ == "__main__":

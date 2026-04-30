@@ -27,3 +27,6 @@ Project/Model/__pycache__/garch_model.cpython-314.pyc
 Project/Model/__pycache__/var_model.cpython-314.pyc
 Project/Model/__pycache__/arima_model.cpython-314.pyc
 Project/Model/__pycache__/johansen_model.cpython-314.pyc
+Project/Report/__pycache__/llm_report.cpython-314.pyc
+.gitignore
+Project/Report/__pycache__/extract_ols_result.cpython-314.pyc
