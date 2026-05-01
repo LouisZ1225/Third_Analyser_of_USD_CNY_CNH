@@ -11,6 +11,8 @@ def clean_data(df, datatype):
     
     df = df.set_index("date")
     
+    df = df.asfreq("B")
+    
     if datatype == "fx":
         return df
     else:

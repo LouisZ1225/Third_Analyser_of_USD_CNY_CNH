@@ -1,5 +1,5 @@
 from Clean.clean_csv import load_cnh_csv, load_cny_csv, merge_fx_data
-from Database.initiate_db import init_db
+from Database.Db.initiate_db import init_db
 from Store.store import store_data
 
 DB_PATH = "/Users/zgzzgz/My files/Python Repositories/Third_Analyser_of _USD_CNY_CNH/Project/Database/fx_rate.db"

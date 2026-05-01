@@ -1,6 +1,3 @@
-from Features.feature import calc_spread, calc_MA, calc_volatility
-from Model.models import run_ols, run_adf, run_arima
-
 CONFIG = {
     "data": {
         "datatype": "fx",
@@ -9,35 +6,70 @@ CONFIG = {
     },
 
     "features": [
-        {
-            "name": "spread",
-            "func": calc_spread,
-            "params": {}
-        },
-        {
-            "name": "ma",
-            "func": calc_MA,
-            "params": {"window": 20}
-        },
-        {
-            "name": "volatility",
-            "func": calc_volatility,
-            "params": {"window": 20}
-        }
+        {"name": "spread"},
+        {"name": "ma", "params": {"window": 20}},
+        {"name": "volatility", "params": {"window": 20}},
+        {"name": "lag", "params": {"lag": 1}},
+        {"name": "diff", "params": {"lag": 1}}
     ],
+    "experiments": [
 
-    "models": [
+        # 🧪 1. 基础平稳性检验
         {
-            "name": "OLS",
-            "func": run_ols
+            "name": "基础平稳性检验",
+            "features": [
+                {"name": "spread"}
+            ],
+            "models": ["ADF"]
         },
+
+        # 🧪 2. 趋势解释
         {
-            "name": "ADF",
-            "func": run_adf
+            "name": "趋势解释",
+            "features": [
+                {"name": "spread"},
+                {"name": "ma", "params": {"window": 20}}
+            ],
+            "models": ["OLS"]
         },
+
+        # 🧪 3. 波动解释
         {
-            "name": "ARIMA",
-            "func": run_arima
+            "name": "波动解释",
+            "features": [
+                {"name": "spread"},
+                {"name": "volatility", "params": {"window": 20}}
+            ],
+            "models": ["OLS", "GARCH"]
+        },
+
+        # 🧪 4. 滞后结构
+        {
+            "name": "滞后结构",
+            "features": [
+                {"name": "spread"},
+                {"name": "lag", "params": {"lag": 1}}
+            ],
+            "models": ["OLS", "AR"]
+        },
+
+        # 🧪 5. 差分结构（用于时间序列）
+        {
+            "name": "差分结构",
+            "features": [
+                {"name": "spread"},
+                {"name": "diff", "params": {"lag": 1}}
+            ],
+            "models": ["ARIMA"]
+        },
+
+        # 🧪 6. 协整关系
+        {
+            "name": "协整关系",
+            "features": [
+                {"name": "spread"}   # 实际用 usd_cny/usd_cnh
+            ],
+            "models": ["JOHANSEN"]
         }
     ]
 }

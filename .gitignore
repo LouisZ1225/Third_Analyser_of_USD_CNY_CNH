@@ -39,3 +39,6 @@ Project/Features/__pycache__/calculate_volatility.cpython-314.pyc
 Project/Model/__pycache__/models.cpython-314.pyc
 Project/Config/__pycache__/config.cpython-314.pyc
 Project/Database/Clean/__pycache__/query_data_clean.cpython-314.pyc
+Project/Experiment/__pycache__/experiment.cpython-314.pyc
+Project/Model/__pycache__/models_results.cpython-314.pyc
+Project/Report/__pycache__/summery.cpython-314.pyc

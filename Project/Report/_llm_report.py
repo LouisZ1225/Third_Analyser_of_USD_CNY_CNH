@@ -1,6 +1,5 @@
 import requests
 import json
-from Report.extract_ols_result import extract_ols_metrics
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 

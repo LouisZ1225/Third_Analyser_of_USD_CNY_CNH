@@ -1,6 +1,8 @@
 from Config.config import CONFIG
 from Database.Db.query import query_rate
 from Database.Clean.query_data_clean import clean_data
+from Experiment.experiment import run_experiments
+from Report.summery import build_summary_table
 
 def load_data():
     data_config = CONFIG["data"]
@@ -15,8 +17,18 @@ def load_data():
 def main():
     print("🚀 开始运行 pipeline...")
 
-    df = load_data()
+    df_raw = load_data()
+    
+    results = run_experiments(
+        df_raw,
+        CONFIG["experiments"]
+    )   
+    
+    summary_df = build_summary_table(results)
 
+    print("\n📊 Summary Table:")
+    print(summary_df)
+    
     print("\n🎯 Pipeline 完成")
 
 if __name__ == "__main__":
