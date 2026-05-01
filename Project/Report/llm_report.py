@@ -1,6 +1,5 @@
 import requests
 import json
-import time
 from Report.extract_ols_result import extract_ols_metrics
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
@@ -30,7 +29,7 @@ def ask_llm(prompt):
     
 
 
-def generate_ols_report(model):
+def generate_report(model):
 
     metrics = extract_ols_metrics(model)
 

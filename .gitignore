@@ -30,3 +30,12 @@ Project/Model/__pycache__/johansen_model.cpython-314.pyc
 Project/Report/__pycache__/llm_report.cpython-314.pyc
 .gitignore
 Project/Report/__pycache__/extract_ols_result.cpython-314.pyc
+Project/Database/Db/__pycache__/query.cpython-314.pyc
+Project/Features/__pycache__/calculate_MA.cpython-314.pyc
+Project/Features/__pycache__/calculate_spread.cpython-314.pyc
+.gitignore
+Project/Features/__pycache__/feature.cpython-314.pyc
+Project/Features/__pycache__/calculate_volatility.cpython-314.pyc
+Project/Model/__pycache__/models.cpython-314.pyc
+Project/Config/__pycache__/config.cpython-314.pyc
+Project/Database/Clean/__pycache__/query_data_clean.cpython-314.pyc
